@@ -5,15 +5,10 @@ public class Fatura {
     private String emailDevedor;
     private double valor;
     private boolean emailEnviado;
-    private Exemplo exemplo;
 
     public Fatura(String emailDevedor, double valor) {
         this.emailDevedor = emailDevedor;
         this.valor = valor;
-    }
-
-    public Fatura(FaturaAntiga faturaAntiga) {
-        this.exemplo = faturaAntiga.getExemplo();
     }
 
     public String getEmailDevedor() {
@@ -40,12 +35,8 @@ public class Fatura {
         return "valor da fatura vencida " + this.valor;
     }
 
-    public Exemplo getExemplo() {
-        return exemplo;
-    }
-
-    public void setExemplo(Exemplo exemplo) {
-        this.exemplo = exemplo;
+    public boolean estarEmRisco(){
+        return valor > 350 ? true : false;
     }
 
     @Override
@@ -54,7 +45,6 @@ public class Fatura {
                 "emailDevedor='" + emailDevedor + '\'' +
                 ", valor=" + valor +
                 ", emailEnviado=" + emailEnviado +
-                ", exemplo=" + exemplo +
                 '}';
     }
 
