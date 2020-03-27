@@ -1,9 +1,8 @@
-package service;
+package com.exampledi.injectionstudy.service;
 
-import model.Cliente;
-import notificacao.Notificador;
-import notificacao.NotificadorEmail;
-import notificacao.NotificadorSms;
+
+import com.exampledi.injectionstudy.model.Cliente;
+import com.exampledi.injectionstudy.notificacao.Notificador;
 
 public class AtivacaoClienteService {
 
