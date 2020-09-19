@@ -1,16 +1,19 @@
 import model.Cliente;
+import notificacao.Notificador;
 import notificacao.NotificadorEmail;
-import notificacao.NotificadorSms;
 import service.AtivacaoClienteService;
 
 public class Main {
-	public static void main(String[] args) {
-		Cliente joao = new Cliente("Joao", "joao@gmail", "999987");
-		Cliente maria = new Cliente("Maria", "maria@gmail", "999955");
 
-		AtivacaoClienteService ativacaoClienteService = new AtivacaoClienteService(new NotificadorEmail());
+  public static void main(String[] args) {
 
-		ativacaoClienteService.ativar(joao);
-		ativacaoClienteService.ativar(maria);
-	}
+    Cliente joao = new Cliente("João dos Santos", "joao@gmail.com", "9988563727");
+    Cliente maria = new Cliente("Maria das Couves", "maria@gmail.com", "9988553647");
+
+    Notificador notificadorEmail = new NotificadorEmail();
+
+    AtivacaoClienteService ativacaoClienteService = new AtivacaoClienteService(notificadorEmail);
+    ativacaoClienteService.ativar(joao);
+    ativacaoClienteService.ativar(maria);
+  }
 }
