@@ -4,16 +4,16 @@ import com.algaworks.algafoodapi.di.modelo.Cliente;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-@Profile("prod")
+@Profile("dev")
 @TipoDoNotificador(NivelUrgencia.NORMAL)
 @Component
-public class NotificadorEmail implements Notificador {
+public class NotificadorEmailMock implements Notificador {
 
   private boolean caixaAlta;
   private String hostServidorSmtp;
 
-  public NotificadorEmail() {
-    System.out.println("Notificador email real");
+  public NotificadorEmailMock() {
+    System.out.println("Notificador email mock");
   }
 
   @Override
@@ -23,8 +23,8 @@ public class NotificadorEmail implements Notificador {
     }
 
     System.out
-        .printf("Notificando o %s através do email %s usando SMTP %s: %s\n", cliente.getNome(),
-            cliente.getEmail(), this.hostServidorSmtp, mensagem);
+        .printf("Notificação seria enviada para %s através do email %s usando SMTP %s: %s\n",
+            cliente.getNome(), cliente.getEmail(), this.hostServidorSmtp, mensagem);
   }
 
   public boolean isCaixaAlta() {
