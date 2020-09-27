@@ -2,17 +2,17 @@ package com.algaworks.algafoodapi.di.notificacao;
 
 import com.algaworks.algafoodapi.di.modelo.Cliente;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Qualifier("email")
+@Qualifier("sms")
 @Component
-public class NotificadorEmail implements Notificador {
+public class NotificadorSMS implements Notificador {
 
   private boolean caixaAlta;
   private String hostServidorSmtp;
 
-  public NotificadorEmail() {
+  public NotificadorSMS() {
+    //this.hostServidorSmtp = hostServidorSmtp;
     System.out.println("Notificador email");
   }
 
@@ -23,8 +23,8 @@ public class NotificadorEmail implements Notificador {
     }
 
     System.out
-        .printf("Notificando o %s através do email %s usando SMTP %s: %s\n", cliente.getNome(),
-            cliente.getEmail(), this.hostServidorSmtp, mensagem);
+        .printf("Notificando o %s através do telefone %s usando SMTP %s: %s\n", cliente.getNome(),
+            cliente.getTelefone(), this.hostServidorSmtp, mensagem);
   }
 
   public boolean isCaixaAlta() {
