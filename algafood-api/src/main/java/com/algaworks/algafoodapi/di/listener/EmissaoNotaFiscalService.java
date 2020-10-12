@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class EmissaoNotaFiscalService {
 
-  @TipoDoNotificador(NivelUrgencia.NORMAL)
+  @TipoDoNotificador(NivelUrgencia.URGENTE)
   @Autowired
   private Notificador notificador;
 
