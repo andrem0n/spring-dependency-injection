@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Profile("dev")
 @TipoDoNotificador(NivelUrgencia.NORMAL)
-@Component
+//@Component
 public class NotificadorEmailMock implements Notificador {
 
   private boolean caixaAlta;
